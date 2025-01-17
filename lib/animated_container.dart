@@ -7,19 +7,20 @@ class Animatedpage extends StatefulWidget{
 class _animatedpageState extends State<Animatedpage> {
   double _width=200;
   double _height=200;
-  Color _color=Colors.blue;
+  Color _color=Colors.white;
 
- void _animationContainer(){
+ void _animateContainer(){
   setState(() {
-    _width = _width == 200 ? 300 : 200;
-    _height = _height == 200 ? 300 : 200;
-    _color = _color == Colors.blue ? Colors.red : Colors.blue;
+    _width = _width == 200 ? 410 : 200;
+    _height = _height == 200 ? 410 : 200;
+    _color = _color == Colors.white ? Colors.blue : Colors.white;
   });
  }
 
 
   Widget build(BuildContext context){
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Animated Text",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
         centerTitle: true,
@@ -31,10 +32,10 @@ class _animatedpageState extends State<Animatedpage> {
           width: _width,
           color: _color,
           curve: Curves.easeInExpo,
-          duration: Duration(seconds: 2),
+          duration: Duration(seconds: 1),
           child: GestureDetector(
-            onTap: () => _animationContainer,
-            child: FlutterLogo(size: 75,)
+            onTap: _animateContainer,
+            child: FlutterLogo(size: 200,)
             ),
           ),
       ),
